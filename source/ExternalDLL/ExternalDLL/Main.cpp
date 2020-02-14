@@ -15,8 +15,8 @@ bool executeSteps(DLLExecution * executor);
 
 int main(int argc, char * argv[]) {
 
-	ImageFactory::setImplementation(ImageFactory::DEFAULT);
-	//ImageFactory::setImplementation(ImageFactory::STUDENT);
+	//ImageFactory::setImplementation(ImageFactory::DEFAULT);
+	ImageFactory::setImplementation(ImageFactory::STUDENT);
 
 
 	ImageIO::debugFolder = "C:/Vision Debug";
@@ -26,25 +26,30 @@ int main(int argc, char * argv[]) {
 
 
 	RGBImage * input = ImageFactory::newRGBImage();
-	if (!ImageIO::loadImage("../../../testsets/Set A/TestSet Images/female-3.png", *input)) {
+	if (!ImageIO::loadImage("../../../testsets/Set A/TestSet Images/blob.png", *input)) {
 		std::cout << "Image could not be loaded!" << std::endl;
 		system("pause");
 		return 0;
 	}
 
-
+	{
+		//test setPixel and getPixel. no idea why it actually works but sure.. (see debug picture for proof that image gets edited)
+		input->setPixel(0, 0, RGB(0, 0, 255));
+		auto test(input->getPixel(0, 0));
+		std::cout << "red: " << int(test.r) << ", green: " << int(test.g) << ", blue: " << int(test.b) << std::endl;
+	}
 	ImageIO::saveRGBImage(*input, ImageIO::getDebugFileName("debug.png"));
 
 	DLLExecution * executor = new DLLExecution(input);
 
 
-	if (executeSteps(executor)) {
-		std::cout << "Face recognition successful!" << std::endl;
-		std::cout << "Facial parameters: " << std::endl;
-		for (int i = 0; i < 16; i++) {
-			std::cout << (i+1) << ": " << executor->facialParameters[i] << std::endl;
-		}
-	}
+	//if (executeSteps(executor)) {
+	//	std::cout << "Face recognition successful!" << std::endl;
+	//	std::cout << "Facial parameters: " << std::endl;
+	//	for (int i = 0; i < 16; i++) {
+	//		std::cout << (i+1) << ": " << executor->facialParameters[i] << std::endl;
+	//	}
+	//}
 
 	delete executor;
 	system("pause");
