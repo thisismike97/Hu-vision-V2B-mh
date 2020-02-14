@@ -8,7 +8,7 @@ RGBImageStudent::RGBImageStudent() : RGBImage() {
 RGBImageStudent::RGBImageStudent(const RGBImageStudent &other) : RGBImage(other.getWidth(), other.getHeight()) {
 	//int throwError = 0, e = 1 / throwError;
 	//TODO: Create a copy from the other object
-	resetSize();
+	RGB2 = other.getRGBMatrix();
 }
 
 
@@ -29,7 +29,6 @@ void RGBImageStudent::set(const int width, const int height) {
 	//TODO: resize or create a new pixel storage (Don't forget to delete the old storage)
 	RGB2.clear();
 	resetSize();
-	//like this?
 }
 
 void RGBImageStudent::set(const RGBImageStudent &other) {
@@ -83,6 +82,11 @@ RGB RGBImageStudent::getPixel(int i) const {
 	//int throwError = 0, e = 1 / throwError;
 	//TODO: see setPixel(int i, RGB pixel)
 	return RGB2[i / getWidth()][i % getWidth()];
+}
+
+std::vector<std::vector<RGB>> RGBImageStudent::getRGBMatrix() const
+{
+	return RGB2;
 }
 
 void RGBImageStudent::resetSize() {

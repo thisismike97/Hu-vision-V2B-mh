@@ -12,9 +12,7 @@ class RGBImageStudent : public RGBImage {
 	std::vector<std::vector<RGB>> RGB2;
 
 	void resetSize();
-
 public:
-
 	RGBImageStudent();
 	RGBImageStudent(const RGBImageStudent& other);
 	RGBImageStudent(const int width, const int height);
@@ -29,4 +27,5 @@ public:
 	RGB getPixel(int x, int y) const;
 	RGB getPixel(int i) const;
 
+	std::vector<std::vector<RGB>> getRGBMatrix() const;
 };

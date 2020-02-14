@@ -6,6 +6,9 @@
 
 #pragma once
 #include "PreProcessing.h"
+#include "ImageFactory.h"
+
+#include <array>
 class StudentPreProcessing : public PreProcessing {
 public:
 	IntensityImage * stepToIntensityImage(const RGBImage &image) const;
