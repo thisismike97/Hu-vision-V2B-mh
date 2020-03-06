@@ -10,14 +10,17 @@
 #include "ImageFactory.h"
 #include "DLLExecution.h"
 #include "RGBImageStudent.h"
+#include <chrono>
+#include <math.h>
+#include <numeric>
 
 void drawFeatureDebugImage(IntensityImage &image, FeatureMap &features);
 bool executeSteps(DLLExecution * executor);
 
 int main(int argc, char * argv[]) {
 
-	//ImageFactory::setImplementation(ImageFactory::DEFAULT);
-	ImageFactory::setImplementation(ImageFactory::STUDENT);
+	ImageFactory::setImplementation(ImageFactory::DEFAULT);
+	//ImageFactory::setImplementation(ImageFactory::STUDENT);
 
 
 	ImageIO::debugFolder = "C:/Vision Debug";
@@ -46,30 +49,30 @@ int main(int argc, char * argv[]) {
 	DLLExecution * executor = new DLLExecution(input);
 
 
-	//if (executeSteps(executor)) {
-	//	std::cout << "Face recognition successful!" << std::endl;
-	//	std::cout << "Facial parameters: " << std::endl;
-	//	for (int i = 0; i < 16; i++) {
-	//		std::cout << (i+1) << ": " << executor->facialParameters[i] << std::endl;
-	//	}
-	//}
-
-	{//test stuff
-		//test copying
-		RGBImageStudent copyTestOg;
-		ImageIO::loadImage("../../../testsets/Set A/TestSet Images/female-3.png", copyTestOg);
-		RGBImageStudent copyTestCpy(copyTestOg);
-		copyTestOg.setPixel(0, RGB(255, 255, 255));
-
-		ImageIO::saveRGBImage(copyTestOg, ImageIO::getDebugFileName("copyTestOg.png"));
-		ImageIO::saveRGBImage(copyTestCpy, ImageIO::getDebugFileName("copyTestCpy.png"));
-
-		RGBImage* pntr = &copyTestOg;
-		StudentPreProcessing preprocessor;
-		auto intensityTest = preprocessor.stepToIntensityImage(copyTestCpy);
-
-		ImageIO::saveIntensityImage(*intensityTest, ImageIO::getDebugFileName("IntensityTest.png"));
+	if (executeSteps(executor)) {
+		std::cout << "Face recognition successful!" << std::endl;
+		std::cout << "Facial parameters: " << std::endl;
+		for (int i = 0; i < 16; i++) {
+			std::cout << (i+1) << ": " << executor->facialParameters[i] << std::endl;
+		}
 	}
+
+	//{//test stuff
+	//	//test copying
+	//	RGBImageStudent copyTestOg;
+	//	ImageIO::loadImage("../../../testsets/Set A/TestSet Images/blob.png", copyTestOg);
+	//	RGBImageStudent copyTestCpy(copyTestOg);
+	//	copyTestOg.setPixel(0, RGB(255, 255, 255));
+
+	//	ImageIO::saveRGBImage(copyTestOg, ImageIO::getDebugFileName("copyTestOg.png"));
+	//	ImageIO::saveRGBImage(copyTestCpy, ImageIO::getDebugFileName("copyTestCpy.png"));
+
+	//	RGBImage* pntr = &copyTestOg;
+	//	StudentPreProcessing preprocessor;
+	//	auto intensityTest = preprocessor.stepToIntensityImage(copyTestCpy);
+
+	//	ImageIO::saveIntensityImage(*intensityTest, ImageIO::getDebugFileName("IntensityTest.png"));
+	//}
 
 
 	delete executor;
@@ -77,22 +80,27 @@ int main(int argc, char * argv[]) {
 	return 1;
 }
 
-
-
-
-
-
-
-
-
-
 bool executeSteps(DLLExecution * executor) {
 
-	//Execute the four Pre-processing steps
-	if (!executor->executePreProcessingStep1(false)) {
-		std::cout << "Pre-processing step 1 failed!" << std::endl;
-		return false;
+	for (int i = 0; i < 1; i++) {
+		std::vector<long long> durations;
+		//Execute the four Pre-processing steps
+		for (int i = 0; i < 1; i++) {
+			auto timeStart = std::chrono::high_resolution_clock::now();
+			if (!executor->executePreProcessingStep1(true)) {
+				std::cout << "Pre-processing step 1 failed!" << std::endl;
+				return false;
+			}
+			auto timeEnd = std::chrono::high_resolution_clock::now();
+			durations.push_back(std::chrono::duration_cast<std::chrono::microseconds>(timeEnd - timeStart).count());
+		}
+		std::cout << "Duration of conversion to Intensity Image: " << std::accumulate(durations.begin(), durations.end(), 0.f) / durations.size() << std::endl;
 	}
+
+
+
+	//return false;
+
 
 	if (!executor->executePreProcessingStep2(false)) {
 		std::cout << "Pre-processing step 2 failed!" << std::endl;
