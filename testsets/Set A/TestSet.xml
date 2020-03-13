@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TestSetFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <name Name="female-1" ImagePath="TestSet Images\female-1.png">
-    <Parameters>
-      <double>1.6730769230769231</double>
-      <double>0.44252873563218392</double>
-      <double>0.71153846153846156</double>
-      <double>0</double>
-      <double>2.0576235698968648</double>
-      <double>1.1017133465306563</double>
-      <double>0.2720593101331335</double>
-      <double>2.0972875345516857</double>
-      <double>0.45729879891057557</double>
-      <double>0.13224484288012689</double>
-      <double>1.4285714285714286</double>
-      <double>0.62337662337662336</double>
-      <double>0.33766233766233766</double>
-      <double>1.1428571428571428</double>
-      <double>1.2370774894795766</double>
-      <double>2.2916666666666665</double>
-    </Parameters>
-  </name>
   <name Name="female-2" ImagePath="TestSet Images\female-2.png">
     <Parameters>
       <double>1.5428177857625647</double>
@@ -138,6 +118,126 @@
       <double>0.64782307171719922</double>
       <double>1.5952611209968222</double>
       <double>3.4615384615384617</double>
+    </Parameters>
+  </name>
+  <name Name="erik" ImagePath="TestSet Images\erik.png">
+    <Parameters>
+      <double>1.5453690038629486</double>
+      <double>0.58829984314605588</double>
+      <double>0.7121595199590961</double>
+      <double>0</double>
+      <double>2.2480947860653151</double>
+      <double>1.2207841346076009</double>
+      <double>0.35112846575450346</double>
+      <double>1.7418069141513057</double>
+      <double>0.4471158604461517</double>
+      <double>0.094671169919318662</double>
+      <double>0.28145059696509683</double>
+      <double>0.26663740765114441</double>
+      <double>0.20791301978771345</double>
+      <double>0.74065946569762331</double>
+      <double>1.5822549780101316</double>
+      <double>1.0555555555555554</double>
+    </Parameters>
+  </name>
+  <name Name="mathijsd" ImagePath="TestSet Images\mathijsd.png">
+    <Parameters>
+      <double>1.5453690038629486</double>
+      <double>0.58829984314605588</double>
+      <double>0.7121595199590961</double>
+      <double>0</double>
+      <double>2.2480947860653151</double>
+      <double>1.2207841346076009</double>
+      <double>0.35112846575450346</double>
+      <double>1.7418069141513057</double>
+      <double>0.4471158604461517</double>
+      <double>0.094671169919318662</double>
+      <double>0.28145059696509683</double>
+      <double>0.26663740765114441</double>
+      <double>0.20791301978771345</double>
+      <double>0.74065946569762331</double>
+      <double>1.5822549780101316</double>
+      <double>1.0555555555555554</double>
+    </Parameters>
+  </name>
+  <name Name="lol" ImagePath="TestSet Images\lol.png">
+    <Parameters>
+      <double>1.7291099182074132</double>
+      <double>0.69611780455153938</double>
+      <double>0.5208792489477847</double>
+      <double>0</double>
+      <double>1.8056177714244484</double>
+      <double>0.82734181330755718</double>
+      <double>0.80918971503594</double>
+      <double>2.11427392150794</double>
+      <double>0.651696218663999</double>
+      <double>0.055989703891268304</double>
+      <double>0.64615384615384619</double>
+      <double>0.12307692307692314</double>
+      <double>0.43076923076923074</double>
+      <double>0.63076923076923086</double>
+      <double>1.2351535232021038</double>
+      <double>5.2499999999999973</double>
+    </Parameters>
+  </name>
+  <name Name="dit is een test" ImagePath="TestSet Images\dit is een test.png">
+    <Parameters>
+      <double>2.8089822888145997</double>
+      <double>0.52900576620653483</double>
+      <double>0.66682725239579932</double>
+      <double>0</double>
+      <double>1.1897409784602047</double>
+      <double>0.98807878642077773</double>
+      <double>0.92505780033683371</double>
+      <double>3.1167278821348483</double>
+      <double>0.52598129735946408</double>
+      <double>0.10264415981782395</double>
+      <double>0.34285714285714247</double>
+      <double>0.28571428571428586</double>
+      <double>0.34404555939406567</double>
+      <double>0.57142857142857173</double>
+      <double>2.0113632421206744</double>
+      <double>1.1999999999999982</double>
+    </Parameters>
+  </name>
+  <name Name="dit is een test" ImagePath="TestSet Images\dit is een test1.png">
+    <Parameters>
+      <double>1.5428177857625647</double>
+      <double>0.55555555555555558</double>
+      <double>0.71430320589047547</double>
+      <double>0</double>
+      <double>2.1257436209134619</double>
+      <double>0.76101275422472991</double>
+      <double>0.30187466669871821</double>
+      <double>1.7326045251053577</double>
+      <double>0.4444791653104358</double>
+      <double>0.13344902388293681</double>
+      <double>0.66666666666666663</double>
+      <double>0.4</double>
+      <double>0.23570226039551584</double>
+      <double>0.73333333333333328</double>
+      <double>1.4998828262311224</double>
+      <double>1.6666666666666667</double>
+    </Parameters>
+  </name>
+  <name Name="tyrfghf" ImagePath="TestSet Images\tyrfghf.png">
+    <Parameters>
+      <double>1.8330190565960738</double>
+      <double>0.57169087512447392</double>
+      <double>0.71440324220428719</double>
+      <double>0</double>
+      <double>2.2455509408116385</double>
+      <double>0.73937487243474775</double>
+      <double>0.32175055439664213</double>
+      <double>1.9647105101511968</double>
+      <double>0.46582353017471473</double>
+      <double>0.14348298668684045</double>
+      <double>0.46443327515845984</double>
+      <double>0.2625057642199991</double>
+      <double>0.20293463694140584</double>
+      <double>0.50481877734615188</double>
+      <double>1.6869340857355284</double>
+      <double>1.7692307692307689</double>
     </Parameters>
   </name>
 </TestSetFile>
