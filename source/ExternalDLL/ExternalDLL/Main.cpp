@@ -30,7 +30,7 @@ int main(int argc, char * argv[]) {
 
 
 	RGBImage * input = ImageFactory::newRGBImage();
-	if (!ImageIO::loadImage("../../../testsets/Set A/TestSet Images/female-3.png", *input)) {
+	if (!ImageIO::loadImage("../../../testsets/Set A/TestSet Images/child-1.png", *input)) {
 		std::cout << "Image could not be loaded!" << std::endl;
 		system("pause");
 		return 0;
@@ -85,13 +85,14 @@ bool executeSteps(DLLExecution * executor) {
 	for (int i = 0; i < 1; i++) {
 		std::vector<long long> durations;
 		//Execute the four Pre-processing steps
-		for (int i = 0; i < 1; i++) {
+		for (int j = 0; j < 10; j++) {
 			auto timeStart = std::chrono::high_resolution_clock::now();
 			if (!executor->executePreProcessingStep1(true)) {
 				std::cout << "Pre-processing step 1 failed!" << std::endl;
 				return false;
 			}
 			auto timeEnd = std::chrono::high_resolution_clock::now();
+			std::cout << "took: " << std::chrono::duration_cast<std::chrono::microseconds>(timeEnd - timeStart).count() << std::endl;
 			durations.push_back(std::chrono::duration_cast<std::chrono::microseconds>(timeEnd - timeStart).count());
 		}
 		std::cout << "Duration of conversion to Intensity Image: " << std::accumulate(durations.begin(), durations.end(), 0.f) / durations.size() << std::endl;
@@ -99,7 +100,7 @@ bool executeSteps(DLLExecution * executor) {
 
 
 
-	//return false;
+	return false;
 
 
 	if (!executor->executePreProcessingStep2(false)) {
