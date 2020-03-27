@@ -69,7 +69,7 @@ void RGBImageStudent::setPixel(int i, RGB pixel) {
 	* 8		8
 	*/
 
-	RGB2[i / getWidth()][i % getWidth()] = pixel;
+	if(getWidth()) RGB2[i / getWidth()][i % getWidth()] = pixel;
 }
 
 RGB RGBImageStudent::getPixel(int x, int y) const {

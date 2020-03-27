@@ -13,6 +13,7 @@
 #include <chrono>
 #include <math.h>
 #include <numeric>
+#include <string>
 
 void drawFeatureDebugImage(IntensityImage &image, FeatureMap &features);
 bool executeSteps(DLLExecution * executor);
@@ -26,23 +27,12 @@ int main(int argc, char * argv[]) {
 	ImageIO::debugFolder = "C:/Vision Debug";
 	ImageIO::isInDebugMode = true; //If set to false the ImageIO class will skip any image save function calls
 
-
-
-
 	RGBImage * input = ImageFactory::newRGBImage();
-	if (!ImageIO::loadImage("../../../testsets/Set A/TestSet Images/child-1.png", *input)) {
+	if (!ImageIO::loadImage("../../../testsets/Set A/TestSet Images/greenblob.png", *input)) {
 		std::cout << "Image could not be loaded!" << std::endl;
 		system("pause");
 		return 0;
 	}
-
-
-
-
-
-
-
-
 
 	ImageIO::saveRGBImage(*input, ImageIO::getDebugFileName("debug.png"));
 
@@ -60,7 +50,7 @@ int main(int argc, char * argv[]) {
 	//{//test stuff
 	//	//test copying
 	//	RGBImageStudent copyTestOg;
-	//	ImageIO::loadImage("../../../testsets/Set A/TestSet Images/blob.png", copyTestOg);
+	//	ImageIO::loadImage("../../../testsets/Set A/TestSet Images/4K2.jpg", copyTestOg);
 	//	RGBImageStudent copyTestCpy(copyTestOg);
 	//	copyTestOg.setPixel(0, RGB(255, 255, 255));
 
@@ -92,12 +82,11 @@ bool executeSteps(DLLExecution * executor) {
 				return false;
 			}
 			auto timeEnd = std::chrono::high_resolution_clock::now();
-			std::cout << "took: " << std::chrono::duration_cast<std::chrono::microseconds>(timeEnd - timeStart).count() << std::endl;
+			std::cout << "number " << j+1 << ": " << std::chrono::duration_cast<std::chrono::microseconds>(timeEnd - timeStart).count() << std::endl;
 			durations.push_back(std::chrono::duration_cast<std::chrono::microseconds>(timeEnd - timeStart).count());
 		}
 		std::cout << "Duration of conversion to Intensity Image: " << std::accumulate(durations.begin(), durations.end(), 0.f) / durations.size() << std::endl;
 	}
-
 
 
 	return false;
