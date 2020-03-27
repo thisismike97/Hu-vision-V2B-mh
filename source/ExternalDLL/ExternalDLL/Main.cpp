@@ -48,23 +48,6 @@ int main(int argc, char * argv[]) {
 		}
 	}
 
-	//{//test stuff
-	//	//test copying
-	//	RGBImageStudent copyTestOg;
-	//	ImageIO::loadImage("../../../testsets/Set A/TestSet Images/4K2.jpg", copyTestOg);
-	//	RGBImageStudent copyTestCpy(copyTestOg);
-	//	copyTestOg.setPixel(0, RGB(255, 255, 255));
-
-	//	ImageIO::saveRGBImage(copyTestOg, ImageIO::getDebugFileName("copyTestOg.png"));
-	//	ImageIO::saveRGBImage(copyTestCpy, ImageIO::getDebugFileName("copyTestCpy.png"));
-
-	//	RGBImage* pntr = &copyTestOg;
-	//	StudentPreProcessing preprocessor;
-	//	auto intensityTest = preprocessor.stepToIntensityImage(copyTestCpy);
-
-	//	ImageIO::saveIntensityImage(*intensityTest, ImageIO::getDebugFileName("IntensityTest.png"));
-	//}
-
 
 	delete executor;
 	system("pause");
@@ -89,7 +72,7 @@ bool executeSteps(DLLExecution * executor) {
 		std::cout << "Duration of conversion to Intensity Image: " << std::accumulate(durations.begin(), durations.end(), 0.f) / durations.size() << std::endl;
 	}
 
-
+	//preemtive return. (used for testing)
 	return false;
 
 
